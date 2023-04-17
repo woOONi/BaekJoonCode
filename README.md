@@ -1,2 +1,4 @@
-# BaekJoonCode
-This is a auto push repository for Baekjoon Online Judge created with [BaekjoonHub](https://github.com/BaekjoonHub/BaekjoonHub).
+## BaekJoonCode
+---
+- 백준 or 프로그래머스 문제 풀기
+- 주로 푸는 언어 : python, MySQL
