@@ -1,4 +1,6 @@
 # [Medium] 550. Game Play Analysis IV
+🔗 url : https://leetcode.com/problems/game-play-analysis-iv/
+
 Table: `Activity`
 
 
