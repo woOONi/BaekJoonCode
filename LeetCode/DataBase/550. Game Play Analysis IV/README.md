@@ -8,7 +8,7 @@ Table: Activity
 | device_id    | int     |
 | event_date   | date    |
 | games_played | int     |
-|---|---|
+
 
 (player_id, event_date) is the primary key of this table.
 This table shows the activity of players of some games.
