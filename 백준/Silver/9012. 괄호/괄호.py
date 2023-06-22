@@ -17,7 +17,4 @@ while n > 0 :
             else :
                 sum -= 1
     
-    if sum == 0:
-        print('YES')
-    else :
-        print('NO')
+    print('YES') if sum == 0 else print('NO')
