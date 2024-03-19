@@ -1,15 +1,8 @@
-from collections import deque
+import re
 class Solution:
     def isPalindrome(self, s: str) -> bool:
-        # deque
-        # 자료형 deque로 선언
-        strs : Deque = deque()
+        # 슬라이싱
+        s = s.lower()
+        s = re.sub('[^a-z0-9]', '',s)
 
-        for char in s:
-            if char.isalnum():
-                strs.append(char.lower())
-
-        while len(strs)>1:
-            if strs.popleft()!= strs.pop():
-                return False
-        return True
+        return s==s[::-1] # 슬라이싱
