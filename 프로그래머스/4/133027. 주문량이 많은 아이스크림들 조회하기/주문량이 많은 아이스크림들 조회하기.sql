@@ -1,11 +1,15 @@
-SELECT FLAVOR
-    FROM (
-        SELECT FLAVOR, TOTAL_ORDER
-            FROM FIRST_HALF
-        UNION ALL
-        SELECT FLAVOR, TOTAL_ORDER
-            FROM JULY
-    ) AS TOTAL
-    GROUP BY FLAVOR
-    ORDER BY SUM(TOTAL_ORDER) DESC
-    LIMIT 3
+with tmp as (
+    SELECT FLAVOR, SUM(TOTAL_ORDER) as total
+        FROM (
+            SELECT FLAVOR, TOTAL_ORDER
+                FROM FIRST_HALF
+            UNION ALL
+            SELECT FLAVOR, TOTAL_ORDER
+                FROM JULY
+        )
+        GROUP BY FLAVOR
+        ORDER BY total DESC
+)
+select FLAVOR
+    from tmp
+    where rownum<=3
