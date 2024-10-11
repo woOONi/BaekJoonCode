@@ -4,11 +4,14 @@
 #         else '대여 가능'
 #     end) asAVAILABILITY
 # from CAR_RENTAL_COMPANY_RENTAL_HISTORY as h
-# left join (select history_id, car_id,
-#     (case when (start_date <= date('2022-10-16') and end_date >= date('2022-10-16')) then 1
-#         else 0
-#     end) as sum_date
-# from CAR_RENTAL_COMPANY_RENTAL_HISTORY) as o
+#     left join (
+#         select history_id
+#             , car_id
+#             ,(case when (start_date <= date('2022-10-16') and end_date >= date('2022-10-16')) then 1
+#             else 0
+#         end) as sum_date
+#     from CAR_RENTAL_COMPANY_RENTAL_HISTORY
+#     ) as o
 # on h.history_id = o.history_id
 # group by car_id
 # order by car_id desc
@@ -26,9 +29,8 @@ WITH rentcar as (
             AND end_date >= '2022-10-16'
 )
 
-SELECT CAR_ID
+SELECT distinct CAR_ID
     , CASE WHEN A.CAR_ID IN (SELECT * FROM rentcar) THEN '대여중' ELSE '대여 가능' END AS AVAILABILITY
     FROM CAR_RENTAL_COMPANY_RENTAL_HISTORY A
-    GROUP BY CAR_ID
+    # GROUP BY CAR_ID
     ORDER BY CAR_ID DESC
-
