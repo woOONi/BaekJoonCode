@@ -18,6 +18,7 @@ def solution(operations):
                 else:
                     heap = heapq.nsmallest(len(heap), heap)
                     heap.pop()
+                    heapq.heapify(heap)
         # print(i,heap)
         i+= 1
     
